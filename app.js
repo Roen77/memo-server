@@ -41,6 +41,13 @@ app.use('/boards',boardRouter);
 app.use('/cards',cardRouter);
 app.use('/categorys', categoryRouter);
 
+app.get('/',(req,res)=>{
+  console.log('test')
+  return res.json({
+    test:'test'
+  })
+})
+
 app.listen(prod?process.env.PORT:PORT,()=>{
     console.log(`${prod?process.env.PORT:PORT}번에서 실행중`)
 })
