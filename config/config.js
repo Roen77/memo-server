@@ -26,6 +26,6 @@ module.exports ={
       "dialect": "postgres",
       "port":5432,
       "operatorsAliases": false,
-    "use_env_variable": process.env.DATABASE_URL
+      "use_env_variable": "DATABASE_URL"
     }
   }
