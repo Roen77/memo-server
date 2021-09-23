@@ -3,6 +3,7 @@ const { Op } = require("sequelize");
 const {authenticated} = require('../middleware/auth');
 const db = require('../models');
 const router = express.Router();
+const defaultColor ="#3F51B5"
 
 // 보드 생성
 router.post('/',authenticated,async (req,res,next)=>{
@@ -17,7 +18,7 @@ router.post('/',authenticated,async (req,res,next)=>{
       const newBoard= await db.Board.create({
            title,
            description,
-           bgcolor:req.body.bgcolor || '#FFF8E1',
+           bgcolor:req.body.bgcolor || defaultColor,
            UserId:req.user.id
        })
        return  res.status(200).json({
@@ -44,7 +45,8 @@ router.get('/',authenticated,async (req,res,next)=>{
             const sampleBoard = await db.Board.findOrCreate({
                 where: {
                     title: '샘플보드..',
-                    bgcolor: '#FFF8E1',
+                    description:'샘플 내용...',
+                    bgcolor: defaultColor,
                     UserId: req.user.id
                 }
             })
@@ -110,7 +112,7 @@ router.get('/:BoardId', authenticated, async (req, res, next) => {
                     description:'샘플 카드 내용 입니다',
                     BoardId: req.params.BoardId,
                     CategoryId: sampleCategory[0].dataValues.id,
-                    bgcolor: '#FFF8E1',
+                    bgcolor: defaultColor,
                     complete:false,
                     UserId: req.user.id
                 }

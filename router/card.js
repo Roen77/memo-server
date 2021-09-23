@@ -117,7 +117,7 @@ router.put('/:CardId',authenticated,async (req,res,next)=>{
            updateData = {
                complete: req.body.complete
            }
-           msg=req.body.complete?'해당 카드 완료!':'진행중으로 수정 되었습니다.';
+           msg=req.body.complete?'완료로 변경되었습니다.':'진행중으로 변경되었습니다.';
        } else if (req.body.title && req.body.description) {
         //    카드의 내용 수정(카드의 제목,메모)
            let bgcolor;

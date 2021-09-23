@@ -114,7 +114,7 @@ router.post('/:BoardId/:CardId',upload.single('image'),authenticated,async (req,
             // 이미 존재하는 카데고리가 있을 경우
             return res.status(400).json({
                 success:false,
-                msg:'이미 존재하는 카테고리입니다.'
+                msg:'이미 존재하는 카테고리 이름입니다.'
             })
         }else{
             // 이미 존재하는 카테고리가 없을 경우에만 카테고리 데이터를 추가합니다.
@@ -178,7 +178,7 @@ router.put('/:BoardId/:CardId',authenticated,async (req,res,next)=>{
          })
        return  res.json({
         success:true,
-        msg:'성공적으로 카테고리 수정 완료하였습니다.'
+        msg:'성공적으로 대표 카테고리 수정 완료하였습니다.'
     })
     } catch (error) {
         console.error(error)
