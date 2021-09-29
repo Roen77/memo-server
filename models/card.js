@@ -29,8 +29,9 @@ module.exports=class Card extends Sequelize.Model {
     }
     static associate(db){
         db.Card.belongsTo(db.User)
+        db.Card.belongsTo(db.Board)
         db.Card.belongsToMany(db.Category,{ through: 'CardCategory',as:'CardTypes' })
         db.Card.belongsTo(db.Category)
-      
+
     }
 }

@@ -140,7 +140,6 @@ router.get('/:BoardId', authenticated, async (req, res, next) => {
                 ]
             }, {
                 model: db.Category,
-
             }]
         })
         return res.json({

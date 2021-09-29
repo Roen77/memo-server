@@ -1,8 +1,6 @@
 
 const express = require('express');
 const cors = require('cors');
-const helmet = require('helmet');
-const hpp = require('hpp');
 const morgan=require('morgan');
 const {sequelize} = require('./models');
 const prod=process.env.NODE_ENV === 'production'
@@ -25,8 +23,6 @@ sequelize.sync()
 
 if (prod) {
     app.use(morgan('combined'));
-    app.use(helmet());
-    app.use(hpp());
   } else {
     app.use(morgan('dev'));
   }
