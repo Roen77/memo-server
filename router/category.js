@@ -48,44 +48,6 @@ router.get('/:BoardId',authenticated,async (req,res,next)=>{
         })
     }
 })
-// 카드카테고리 가져오기
-// router.get('/:BoardId/:CardId',authenticated,async (req,res,next)=>{
-//     try {
-//         const Board=await db.Board.findOne({
-//             where:{id:req.params.BoardId}});
-//         const card=await db.Card.findOne({
-//             where:{id:req.params.CardId}
-//         })
-//         if(!Board){
-//             return  res.status(404).json({
-//                 success:false,
-//                 msg:'보드가 존재하지 않습니다.'
-//             })
-//         }
-
-//       const categorys= await Board.getTypes({ through: { where: { BoardId:req.params.BoardId} } })
-//       let reArr=[]
-//       if(req.params.CardId){
-//           const cardCategorys=await card.getCardTypes({ through: { where: { CardId:req.params.CardId} } })
-//         categorys.filter((category,index)=>{
-//             if(!cardCategorys.find((c,i)=>c.id ===category.id)){
-//                 reArr.push(category)
-//             }
-//         })
-//         console.log(reArr)
-
-//     }
-//        return  res.json({
-//         success:true,
-//         categorys:reArr
-//     })
-//     } catch (error) {
-//         console.error(error)
-//       return  res.status(404).json({
-//             success:false
-//         })
-//     }
-// })
 // 카드 카테고리 추가
 router.post('/:BoardId/:CardId',upload.single('image'),authenticated,async (req,res,next)=>{
     try {
@@ -187,27 +149,4 @@ router.put('/:BoardId/:CardId',authenticated,async (req,res,next)=>{
         })
     }
 })
-//카드 카테고리 삭제
-// router.delete('/:categoryId/card/:cardId',authenticated,async (req,res,next)=>{
-//     try {
-//         const card=await db.Card.findOne({
-//             where:{id:req.params.cardId}});
-//         if(!card){
-//             return  res.status(404).json({
-//                 success:false,
-//                 msg:'카드가 존재하지 않습니다.'
-//             })
-//         }
-//         await card.removeCardTypes(req.params.categoryId)
-//        return  res.json({
-//         success:true,
-//         msg:'성공적으로 카테고리 삭제 완료하였습니다.'
-//     })
-//     } catch (error) {
-//         console.error(error)
-//       return  res.status(404).json({
-//             success:false
-//         })
-//     }
-// })
 module.exports=router;

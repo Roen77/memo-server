@@ -71,7 +71,6 @@ router.get('/',authenticated,async (req,res,next)=>{
 // 보드에있는 카드 가져오기
 router.get('/:BoardId', authenticated, async (req, res, next) => {
     try {
-        console.log('userid 확인',req.user.id)
         const board=await db.Board.findOne({
             where: {
                 [Op.and]: [{

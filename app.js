@@ -38,9 +38,8 @@ app.use('/cards',cardRouter);
 app.use('/categorys', categoryRouter);
 
 app.get('/',(req,res)=>{
-  console.log('test')
   return res.json({
-    test:'test'
+    url:'https://vuememo-sv.herokuapp.com'
   })
 })
 

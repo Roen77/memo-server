@@ -23,15 +23,14 @@ if(process.env.NODE_ENV === 'production'){
   sequelize
   .authenticate()
   .then(() => {
-    console.log('Connection has been established successfully.');
+    console.log('연결 성공');
   })
   .catch(err => {
-    console.error('Unable to connect to the database:', err);
+    console.error('연결 실패:', err);
   });
 }else{
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
-// const sequelize = new Sequelize(config.database, config.username, config.password, config);
 
 
 Object.keys(db).forEach(modelName => {
