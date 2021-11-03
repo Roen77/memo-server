@@ -19,7 +19,7 @@ router.post('/',authenticated,async (req,res,next)=>{
       const newCard= await db.Card.create({
            title,
            description,
-           bgcolor:req.body.bgcolor || '#00BCD4',
+           bgcolor:req.body.bgcolor || '#3F51B5',
            BoardId,
            CategoryId,
            UserId:req.user.id
